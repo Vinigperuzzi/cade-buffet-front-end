@@ -27,5 +27,11 @@ This application are developed to consume from http://localhost:3000, because it
 
 ***
 
+For Campus Code people: 
+
+In order to maintain the single page application, I fought my urge to make several pages, and maintain it as more reactive as possible. So, all navigation occur on the same single page, opening and closing some other views.
+
+***
+
 ### Happy Coding
 ## Vinigperuzzi 🧙‍♂️
