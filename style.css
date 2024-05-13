@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #8434a4;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.alert {
+  background-color: #ffbaba;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0vh;
+  right: 0vw;
+}
+
+.notice {
+  background-color: #f5f5f5;
+  border: 1px solid #8434a4;
+  color: #8434a4;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0vh;
+  right: 0vw;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.card address {
+  font-style: normal;
+}
+
+.button-details {
+  background-color: #8434a4;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.button-details:hover {
+  background-color: #6a2278;
+}
+
+.buffet-details {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.buffet-details dl {
+  margin: 0;
+  padding: 0;
+}
+
+.buffet-details dt {
+  font-weight: bold;
+}
+
+.buffet-details dd {
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding-left: 98%;
+}
+
+.input {
+  margin-bottom: 20px;
+}
+
+.input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.event-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.event-card address {
+  font-style: normal;
+}

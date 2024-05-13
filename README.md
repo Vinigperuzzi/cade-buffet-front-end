@@ -19,6 +19,12 @@ Just clone this repo and open the file index.html in your browser. It uses CDN f
 
 It will consume data from the Cadê buffet API, that can be found on [this](https://github.com/Vinigperuzzi/cade-buffet-app) repo. The application are not online yet, so you must run it as well.
 
+
+Note:
+
+
+This application are developed to consume from http://localhost:3000, because it is the default port used by rails server.
+
 ***
 
 ### Happy Coding

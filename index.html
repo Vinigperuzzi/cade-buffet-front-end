@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadê Buffet Front End</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Lista de Buffets</h1>
+
+    <input class="filter" type="text" v-model="filter" placeholder="Filtrar lista de Buffets">
+
+    <div class="alert" v-if="resultList.length <= 0">
+      Nenhum Buffet encontrado!
+    </div>
+
+    <ul>
+      <li v-for="item in resultList">
+        <div class="card">
+          <address>
+            Buffet: {{ item.name }}
+            <button class="button-details" v-on:click="showBuffetDetails(item.id)">Mostrar Detalhes</button>
+          </address>
+        </div>
+      </li>
+    </ul>
+
+    <div class="buffet-details" v-if="buffetDetails.show">
+      <dl>
+        <button class="close-button" v-on:click="closeDetails()">❌</button>
+        <dt>Nome:</dt>
+        <dd>{{ buffetDetails.name }}</dd>
+        <dt>Telefone:</dt>
+        <dd>{{ buffetDetails.phone }}</dd>
+        <dt>E-mail:</dt>
+        <dd>{{ buffetDetails.email }}</dd>
+        <dt>Endereço:</dt>
+        <dd>{{ buffetDetails.address }}</dd>
+        <dt>Bairro:</dt>
+        <dd>{{ buffetDetails.district }}</dd>
+        <dt>Cidade:</dt>
+        <dd>{{ buffetDetails.city }}</dd>
+        <dt>Estado:</dt>
+        <dd>{{ buffetDetails.state }}</dd>
+        <dt>Formas de pagamento:</dt>
+        <dd>{{ buffetDetails.paymentMethod }}</dd>
+        <dt>Descrição:</dt>
+        <dd>{{ buffetDetails.description }}</dd>
+      </dl>
+    </div>
+    <ul class="events-container" v-if="buffetDetails.show">
+      <h2>Lista de Eventos</h2>
+      <li v-for="item in eventsList">
+        <div class="event-card">
+          <address>
+            <div class="event-info">
+              <p><strong>Evento:</strong> {{ item.name }}</p>
+            </div>
+            <div class="event-info">
+              <p>Descrição: {{ item.description }}</p>
+            </div>
+            <div class="event-info">
+              <p>Quantidade de pessoas: De {{ item.minQtd }} a {{ item.maxQtd }}</p>
+            </div>
+            <div class="event-info">
+              <p>Duração do evento (minutos): {{item.duration}}</p>
+            </div>
+            <div class="event-info">
+              <p>Cardápio: {{item.menu}}</p>
+            </div>
+            <div class="event-info">
+              <p>Drinks: {{item.drinks ? 'Disponível' : 'Indisponível'}}</p>
+            </div>
+            <div class="event-info">
+              <p>Decoração: {{item.decoration ? 'Disponível' : 'Indisponível'}}</p>
+            </div>
+            <div class="event-info">
+              <p>Serviço de estacionamento: {{item.valet ? 'Disponível' : 'Indisponível'}}</p>
+            </div>
+            <div class="event-info">
+              <p>Local do evento: {{item.onlyLocal ? 'Apenas no Buffet' : 'Qualquer local'}}</p>
+            </div>
+            <div class="event-info">
+              <p>Preço base (Final de semana): R$ {{item.basePrice}} reais ({{item.spBasePrice}})</p>
+            </div>
+            <div class="event-info">
+              <p>Preço por pessoa adicional (Final de semana): R$ {{item.additionalPerson}} reais ({{item.spAdditionalPerson}})</p>
+            </div>
+            <div class="event-info">
+              <p>Preço por hora adicional (Final de semana): R$ {{item.extraHour}} reais ({{item.spExtraHour}})</p>
+            </div>
+          </address>
+          <form action="">
+            <div class="input">
+              Data do evento
+            <input id="event-date" type="date" v-model="eventDate">
+            </div>
+            <div class="input">
+              Quantidade de convidados
+            <input id="event-guests" type="number" v-model="eventGuests">
+            </div>
+          </form>
+          <button class="button-details" v-on:click="checkAvailability(item.id)">Verificar disponibilidade</button>
+        </div>
+      </li>
+    </ul>
+    <div class="notice" v-if="eventAvailabilityStatus == 200 && eventAvailabilityData.availability">
+      <p>Evento disponível no valor de R$ {{ eventAvailabilityData.value }} Reais.</p>
+    </div>
+    <div class="notice" v-if="eventAvailabilityStatus == 200 && !eventAvailabilityData.availability">
+      <p>Evento indisponível </p>
+    </div>
+    <div class="alert" v-if="eventAvailabilityStatus != null && eventAvailabilityStatus != 200">
+      <p>Erro ao conectar: {{ eventAvailabilityData.error }} </p>
+    </div>
+
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
