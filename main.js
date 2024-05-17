@@ -8,7 +8,7 @@ const app = Vue.createApp({
       filter: '',
       buffetsList: [],
       buffetDetails: {show: false, name: '', phone: '', email: '', address: '', district: '',
-        state: '', city: '', paymentMethod: '', description: ''
+        state: '', city: '', paymentMethod: '', description: '', rating: ''
       },
       eventsList: [],
       eventDate: '',
@@ -60,6 +60,7 @@ const app = Vue.createApp({
       this.buffetDetails.city = data.city;
       this.buffetDetails.paymentMethod = data.payment_method;
       this.buffetDetails.description = data.description;
+      this.buffetDetails.rating = data.rating;
 
       await this.getEventData(index);
     },
